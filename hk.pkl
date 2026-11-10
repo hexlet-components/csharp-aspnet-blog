@@ -12,6 +12,22 @@ local fast = new Mapping<String, Step> {
 }
 
 local all = (fast) {
+  // .NET SDK analyzers: правила CA и IDE, TreatWarningsAsErrors и NuGet Audit
+  // работают внутри сборки, поэтому build сам падает на нарушении.
+  ["dotnet-build"] {
+    glob = List("**/*.cs", "**/*.csproj", "**/*.props", "**/.editorconfig", "global.json")
+    check = "dotnet build --no-restore"
+  }
+  ["dotnet-format"] {
+    glob = List("**/*.cs", "**/.editorconfig")
+    check = "dotnet format --verify-no-changes --no-restore"
+    fix = "dotnet format --no-restore"
+  }
+  ["osv-scanner"] {
+    glob = List("**/packages.lock.json")
+    // --recursive не находит packages.lock.json, поэтому файлы передаются явно.
+    check = "osv-scanner scan source $(printf -- '-L %s ' {{files}})"
+  }
   ["lychee"] {
     glob = List("**/*.md")
     check = "lychee --config lychee.toml --no-progress {{files}}"

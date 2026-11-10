@@ -1,0 +1,5 @@
+# Узкое исключение: только тесты и только это правило.
+# Причина: xUnit1051 требует передавать TestContext.Current.CancellationToken в каждый HTTP-вызов,
+# это зашумляет учебные тесты. Тесты короткие и отмену не используют.
+[*.cs]
+dotnet_diagnostic.xUnit1051.severity = none

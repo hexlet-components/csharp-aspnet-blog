@@ -1,25 +1,30 @@
 [tools]
 betterleaks = "latest"
+dotnet = "10"
 hk = "2"
 jactionlint = "latest"
 lychee = "latest"
 node = "26"
+osv-scanner = "latest"
 "npm:@commitlint/cli" = "latest"
 "npm:@commitlint/config-conventional" = "latest"
 pkl = "latest"
 rumdl = "latest"
 typos = "latest"
 
+
 # Задачи проекта живут здесь, Makefile только проксирует make <задача> в mise run.
-# Первая настройка (AGENTS.md) ставит зависимости стека в setup перед hk install
-# и заполняет test.
 [tasks.setup]
 description = "Поставить зависимости и git-хуки"
-run = ["hk install"]
+run = ["dotnet restore --locked-mode", "hk install"]
 
 [tasks.test]
-description = "Тесты стека"
-run = 'echo "test не настроен, см. AGENTS.md" >&2; exit 1'
+description = "Тесты (xUnit на Microsoft.Testing.Platform)"
+run = "dotnet test --no-restore"
+
+[tasks.dev]
+description = "Запустить приложение на http://localhost:5128"
+run = "dotnet run --project src/CSharpAspnetBlog"
 
 [tasks.check]
 description = "Все проверки, тот же набор, что гоняет CI"
