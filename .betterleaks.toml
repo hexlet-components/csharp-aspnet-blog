@@ -1,0 +1,9 @@
+# Учебная учётка демо-приложения (hexlet@example.com / qwerty) открыта
+# намеренно: её печатает README, её создаёт DataInitializer.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Учебный пароль демо-учётки"
+regexTarget = "line"
+regexes = ['''qwerty''']
