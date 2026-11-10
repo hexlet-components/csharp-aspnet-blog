@@ -1,0 +1,15 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    cooldown:
+      default-days: 7
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      time: "03:00"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 1
+    labels: ["dependencies", "automated"]
+    groups:
+      github-actions-all:
+        patterns: ["*"]
