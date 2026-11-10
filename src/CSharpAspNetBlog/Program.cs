@@ -1,3 +1,4 @@
+using CSharpAspNetBlog.Auth;
 using CSharpAspNetBlog.Data;
 using CSharpAspNetBlog.Handlers;
 using CSharpAspNetBlog.Models;

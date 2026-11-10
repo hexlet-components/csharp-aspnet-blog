@@ -6,7 +6,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 
-namespace CSharpAspNetBlog.Services;
+namespace CSharpAspNetBlog.Auth;
 
 public class JwtTokenService(IOptions<JwtOptions> options)
 {

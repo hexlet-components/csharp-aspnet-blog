@@ -22,7 +22,8 @@
 | `Handlers/` | Перевод исключений в HTTP-ответы | `GlobalExceptionHandler` |
 | `Mappers/` | Преобразование сущностей и DTO вручную | `PostMapper` |
 | `Repositories/` | Доступ к данным | `PostRepository` |
-| `Services/` | Логика приложения | `PostService`, `JwtTokenService`, `CurrentUserService` |
+| `Services/` | Логика приложения | `PostService`, `UserService` |
+| `Auth/` | Выпуск токенов и текущий пользователь | `JwtTokenService`, `CurrentUserService` |
 | `Specifications/` | Условия выборки | `PostCommentSpecification` |
 
 Мапперы написаны руками, без генераторов: студент видит каждое присваивание. Тесты лежат в `tests/CSharpAspNetBlog.Tests/`: xUnit, `WebApplicationFactory`, AwesomeAssertions и Bogus для данных.

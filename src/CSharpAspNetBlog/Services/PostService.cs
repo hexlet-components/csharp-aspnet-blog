@@ -1,3 +1,4 @@
+using CSharpAspNetBlog.Auth;
 using CSharpAspNetBlog.Dtos;
 using CSharpAspNetBlog.Exceptions;
 using CSharpAspNetBlog.Mappers;

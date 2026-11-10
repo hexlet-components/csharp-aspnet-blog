@@ -4,7 +4,7 @@ using CSharpAspNetBlog.Repositories;
 
 using Microsoft.IdentityModel.JsonWebTokens;
 
-namespace CSharpAspNetBlog.Services;
+namespace CSharpAspNetBlog.Auth;
 
 /// <summary>Достаёт текущего пользователя из JWT запроса.</summary>
 public class CurrentUserService(IHttpContextAccessor accessor, UserRepository users)
