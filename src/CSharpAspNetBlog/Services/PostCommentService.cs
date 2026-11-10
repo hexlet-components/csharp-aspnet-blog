@@ -11,14 +11,14 @@ public class PostCommentService(PostCommentRepository comments, PostRepository p
 {
     public const int PageSize = 10;
 
-    public async Task<PageDto<PostCommentDto>> GetPageAsync(PostCommentFilter filter, int page)
+    public async Task<PageDto<PostCommentDto>> GetPageAsync(PostCommentFilterDto filter, int page)
     {
         page = Math.Max(page, 1);
         var (items, total) = await comments.GetPageAsync(PostCommentSpecification.Build(filter), page, PageSize);
         return new PageDto<PostCommentDto>(items.Select(PostCommentMapper.ToDto).ToList(), page, PageSize, total);
     }
 
-    public async Task<PageDto<PostCommentDto>> GetPageForPostAsync(long postId, PostCommentFilter filter, int page)
+    public async Task<PageDto<PostCommentDto>> GetPageForPostAsync(long postId, PostCommentFilterDto filter, int page)
     {
         await EnsurePostExistsAsync(postId);
         return await GetPageAsync(filter with { PostId = postId }, page);

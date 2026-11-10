@@ -11,12 +11,12 @@ public class PostCommentsController(PostCommentService comments) : ControllerBas
 {
     /// <summary>Все комментарии с фильтрами postId, authorId, createdAtGt и страницами по 10.</summary>
     [HttpGet("posts_comments")]
-    public Task<PageDto<PostCommentDto>> Index([FromQuery] PostCommentFilter filter, int page = 1) =>
+    public Task<PageDto<PostCommentDto>> Index([FromQuery] PostCommentFilterDto filter, int page = 1) =>
         comments.GetPageAsync(filter, page);
 
     [HttpGet("posts/{postId:long}/comments")]
     public Task<PageDto<PostCommentDto>> IndexForPost(
-        long postId, [FromQuery] PostCommentFilter filter, int page = 1) =>
+        long postId, [FromQuery] PostCommentFilterDto filter, int page = 1) =>
         comments.GetPageForPostAsync(postId, filter, page);
 
     [HttpGet("posts/{postId:long}/comments/{id:long}")]
