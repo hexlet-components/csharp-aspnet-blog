@@ -24,7 +24,7 @@ run = "dotnet test --no-restore"
 
 [tasks.dev]
 description = "Запустить приложение на http://localhost:5128"
-run = "dotnet run --project src/CSharpAspnetBlog"
+run = "dotnet run --project src/CSharpAspNetBlog"
 
 [tasks.check]
 description = "Все проверки, тот же набор, что гоняет CI"

@@ -9,7 +9,7 @@
 
 ## Устройство
 
-Весь код приложения лежит в `src/CSharpAspnetBlog/`, одна папка на категорию классов:
+Весь код приложения лежит в `src/CSharpAspNetBlog/`, одна папка на категорию классов:
 
 | Папка | Категория | Пример |
 | --- | --- | --- |
@@ -22,11 +22,10 @@
 | `Handlers/` | Перевод исключений в HTTP-ответы | `GlobalExceptionHandler` |
 | `Mappers/` | Преобразование сущностей и DTO вручную | `PostMapper` |
 | `Repositories/` | Доступ к данным | `PostRepository` |
-| `Services/` | Логика приложения | `PostService` |
+| `Services/` | Логика приложения | `PostService`, `JwtTokenService`, `CurrentUserService` |
 | `Specifications/` | Условия выборки | `PostCommentSpecification` |
-| `Utils/` | Вспомогательные классы | `JwtUtils`, `UserUtils` |
 
-Мапперы написаны руками, без генераторов: студент видит каждое присваивание. Тесты лежат в `tests/CSharpAspnetBlog.Tests/`: xUnit, `WebApplicationFactory`, AwesomeAssertions и Bogus для данных.
+Мапперы написаны руками, без генераторов: студент видит каждое присваивание. Тесты лежат в `tests/CSharpAspNetBlog.Tests/`: xUnit, `WebApplicationFactory`, AwesomeAssertions и Bogus для данных.
 
 ## Запуск
 
