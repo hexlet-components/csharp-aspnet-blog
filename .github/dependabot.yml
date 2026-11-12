@@ -8,11 +8,15 @@ updates:
       interval: "monthly"
       time: "03:00"
       timezone: "Etc/UTC"
-    open-pull-requests-limit: 1
+    open-pull-requests-limit: 2
     labels: ["dependencies", "automated"]
     groups:
-      github-actions-all:
+      github-actions-minor-patch:
         patterns: ["*"]
+        update-types: ["minor", "patch"]
+      github-actions-major:
+        patterns: ["*"]
+        update-types: ["major"]
   - package-ecosystem: "nuget"
     cooldown:
       default-days: 7
@@ -21,8 +25,12 @@ updates:
       interval: "monthly"
       time: "03:00"
       timezone: "Etc/UTC"
-    open-pull-requests-limit: 1
+    open-pull-requests-limit: 2
     labels: ["dependencies", "automated"]
     groups:
-      nuget-all:
+      nuget-minor-patch:
         patterns: ["*"]
+        update-types: ["minor", "patch"]
+      nuget-major:
+        patterns: ["*"]
+        update-types: ["major"]
